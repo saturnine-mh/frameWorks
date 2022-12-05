@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+    <title>21 Savage Fan Site</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/64f61a52ef.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+</head>
+<style>
+  .red {
+    color: red;
+  }
+  .black{
+    color: black;
+  }
+  .white{
+    color: grey
+  }
+  
+</style>
+<body id="profileBody">
+<div class="container">
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        
+        <div class="col-sm-6">
+            <div class="well">
+
+                <h3>Your Tesla's</h3>
+                <section>
+                <ul class="messages">
+                <% for(var i=0; i<messages.length; i++) {%>
+                  <li class="message">
+                    <h2><%= messages[i].name %></h2>
+                    <section>
+                    <span name="carName"><%= messages[i].one %></span>
+                    <span><%= messages[i].two %></span>
+                    <span><%= messages[i].three %></span>
+                    <span><%= messages[i].four %></span>
+                    <span><%= messages[i].five %></span>
+                    <span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                    <section>
+                    <img id="teslaImage" name="customTesla" src="<%=messages[i].customTesla%>">
+                    <section id="checkBox">
+                      <label for="newColor">Change the color here:</label>
+                      <span><i class="red fa-solid fa-car" aria-hidden="true"></i></span>
+                      <span><i class="black fa-solid fa-car" aria-hidden="true"></i></span>
+                      <span><i class="white fa-solid fa-car" aria-hidden="true"></i></span>
+                    
+                  </section>
+                    </section>
+                    </section>
+                  </li>
+                <% } %>
+                </ul>
+              </section>
+            </div>
+        </div>
+        <div class="col-sm-6">
+          <section id="profileQuestions">
+          <h1>
+            Tesla Customizer
+        </h1>
+        <% if (user.local.email) { %>
+          <form action="/messages" method="POST">
+        <section id="q1">
+            <h2>Question 1:<br>
+              
+            What is your favorite Tesla model?</h2>
+            <div>
+              <input type="radio" class="question" name="one" value="Model S" required>
+              <label for="b">Model S</label>
+          </div>
+        <div>
+            <input type="radio" class="question" name="one" value="Model 3" required>
+            <label for="a">Model 3</label>
+        </div>
+        <div>
+          <input type="radio" class="question" name="one" value="Model X" required>
+          <label for="b">Model X</label>
+      </div>
+        <div>
+            <input type="radio" class="question" name="one" value="Model Y" required>
+            <label for="b">Model Y</label>
+        </div>
+        <div>
+            <input type="radio" class="question" name="one" value="Tesla Roadster" required>
+            <label for="c">Tesla Roadster</label>
+        </div>
+        </section>
+        <section id="q2">
+          <h2>Question 2:<br>
+          What tires do you want?</h2>
+      <div>
+          <input type="radio" class="question" name="two" value="21 Inch Wheels" required>
+          <label for="a">21" Preformance Tires</label>
+      </div>
+      <div>
+          <input type="radio" class="question" name="two" value="19 Inch Tires" required>
+          <label for="b">19" Tires</label>
+      </div>
+      </section>
+        <section id="q3">
+            <h2>Question 3:<br>
+            Do you want enhanced autopilot?</h2>
+        <div>
+            <input type="radio" class="question" name="three" value="Autopilot" required>
+            <label for="a">Yes</label>
+        </div>
+        <div>
+            <input type="radio" class="question" name="three" value="No Autopilot" required>
+            <label for="b">No</label>
+        </div>
+        </section>
+        <section id="q4">
+            <h2>Question 4:<br>
+            Do you want the preformance model?</h2>
+        <div>
+            <input type="radio" class="question" name="four" value="Preformance" required>
+            <label for="a">Yes</label>
+        </div>
+        <div>
+            <input type="radio" class="question" name="four" value="Base Model" required>
+            <label for="b">No</label>
+        </div>
+        </section>
+        <section id="q5">
+            <h2>Question 5:<br>
+            What color?</h2>
+        <div>
+          <img class="colorChoice" src="img/white.png" alt="Pearl White Color">
+            <input type="radio" class="question" name="five" value="Pearl White" required>
+            <label for="a">Pearl White</label>
+        </div>
+        <div>
+          <img class="colorChoice" src="img/red.png" alt="Red Multi Coat Color">
+            <input type="radio" class="question" name="five" value="Red Multi Coat" required>
+            <label for="b">Red Multi Coat</label>
+        </div>
+        <div>
+          <img class="colorChoice" src="img/black.png" alt="Black Color">
+            <input type="radio" class="question" name="five" value="Solid Black" required>
+            <label for="c">Solid Black</label>
+        </div>
+        </section>
+        <section>
+          <h2>Submit Your Tesla and Give it a Name</h2>
+      
+            <input type="text" placeholder="Name" name="name">
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <% } %>
+      </section>
+</div>
+
+
+  <a id="logoutButton" href="/logout" class="btn btn-default btn-sm">Logout</a>
+
+
+
+<script src="main.js"></script>
+
+</body>
+</html>

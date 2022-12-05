@@ -1,0 +1,172 @@
+<%- include('partials/header') -%>
+<section id="navBar">
+  <nav class="bg-blue-900 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+    <div class="container flex flex-wrap items-center justify-between mx-auto">
+      <a href="/profile" class="flex items-center">
+          <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
+          <span class="self-center text-xl font-semibold whitespace-nowrap text-white">Frameworks</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      </button>
+      <div class="navBarLinks hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="flex flex-col p-4 mt-4  rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="/feed" class="block py-2 pl-3 pr-4 text-black bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">ALBUMS</a>
+          </li>
+          <li>
+            <a href="/profile" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">PROFILE</a>
+          </li>
+          <li>
+            <a href="/logout" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">LOGOUT</a>
+          </li>
+  
+  
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </section>
+  
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-6">
+     <h1  class="font-bold text-2xl text-black" >NAME: <%= post.name %></h1>
+      <a download="<% post.album %>" href="<% post.album %>"></a>
+      <img class="img-fluid" src="<%= post.image %>" />
+    </a>
+      <div class="row justify-content-between">
+       
+        <button id="imageDownloadButton" onclick="downloadFile()"  class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+          Download Compressed Image
+        </button>
+        <div class="w-full bg-white border rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+          <div class="sm:hidden">
+              <label for="tabs" class="sr-only">Select tab</label>
+              <select id="tabs" class="bg-gray-50 border-0 border-b border-gray-200 text-gray-900 text-sm rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <option>Before Vs After</option>
+                  <option>Album</option>
+                  <option>Quality</option>
+              </select>
+          </div>
+          <ul class="hidden text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg sm:flex dark:divide-gray-600 dark:text-gray-400" id="fullWidthTab" data-tabs-toggle="#fullWidthTabContent" role="tablist">
+              <li class="w-full">
+                  <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true" class="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">Before Vs After</button>
+              </li>
+              <li class="w-full">
+                  <button id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false" class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">Album</button>
+              </li>
+              <li class="w-full">
+                  <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab" aria-controls="faq" aria-selected="false" class="inline-block w-full p-4 rounded-tr-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">Quality</button>
+              </li>
+          </ul>
+          <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
+              <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="stats" role="tabpanel" aria-labelledby="stats-tab">
+                  <dl class="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-3 xl:grid-cols-6 dark:text-white sm:p-8">
+
+                  <div class="flex flex-col items-center justify-center">
+                      <dt class="mb-2 text-2xl font-extrabold">NAME: </dt>
+                      <dd class="font-light text-gray-500 dark:text-gray-400"> <%= post.name %></dd>
+                  </div>
+                  
+          
+                      <div  class="beforeAfter"class="flex flex-col items-center justify-center">
+                          <dt class="mb-2 text-2xl font-extrabold">Before:</dt>
+                          <dd class="font-light text-gray-500 dark:text-gray-400"><%= post.originalSize %> Bytes</dd>
+                      </div>
+                      <div class="beforeAfter" class="flex flex-col  justify-center">
+                        <dt class="mb-2 text-2xl font-extrabold">Vs.</dt>
+                    
+                    </div>
+                      <div class="beforeAfter" class="flex flex-col justify-center">
+                        <dt class="mb-2 text-2xl font-extrabold">After:</dt>
+                        <dd class="font-light text-gray-500 dark:text-gray-400"> <%= post.compressedSize %> Bytes</dd>
+                    </div>
+         
+                    
+                   
+                  </dl>
+              </div>
+              <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
+                  <h2 class="mb-5 text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">Album</h2>
+                  <!-- List -->
+                  <ul role="list" class="space-y-4 text-gray-500 dark:text-gray-400">
+                      <li class="flex space-x-2">
+                          <!-- Icon -->
+                         
+                          <a href="/albums/<%= post.album %>" class="font-bold leading-tight"> <%= post.album %> </a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="faq" role="tabpanel" aria-labelledby="faq-tab">
+                  <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white dark:bg-gray-800 text-gray-900 dark:text-white" data-inactive-classes="text-gray-500 dark:text-gray-400">
+                      <h2 id="accordion-flush-heading-1">
+                          <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-1" aria-expanded="true" aria-controls="accordion-flush-body-1">
+                          <span>Quality</span>
+                          <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                          </button>
+                      </h2>
+                      <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
+                          <div class="py-5 font-light border-b border-gray-200 dark:border-gray-700">
+                          <p class="mb-2 text-gray-500 dark:text-gray-400"> Quality Parameters Were Set To: <%= post.title %>%</p>
+          
+                          </div>
+                      </div>
+                      </div>
+                      </div>
+              </div>
+          </div>
+        </div>
+        
+            </div>
+        
+        
+          </div>
+        </div>
+      </div>
+    </div>
+  
+      <form
+          action="/post/deletePost/<%= post.id %>?_method=DELETE"
+          method="POST"
+          class="col-3"
+        >
+          <button id="deletePost" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" type="submit">Delete</button>
+        </form>
+
+
+
+<script>
+
+
+
+const url =  `<%= post.compressedURL %>`
+console.log(url, 'hello')
+
+function downloadFile() {
+  let fileName = url.split("/").pop()
+ let fileType = fileName.split(".").pop()
+ console.log("fileName", fileName)
+  console.log("fileType", fileType)
+  // const link = elmnt
+
+const options = {
+  'Accept': 'application/json',
+  'Content-Type': 'application/json'
+};
+  
+ fetch(url, options)
+  .then( response => {
+    response.blob().then(blob => {
+        let url = window.URL.createObjectURL(blob);
+        let a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        a.click();
+      });
+    }); 
+}
+</script>
+
+<%- include('partials/footer') -%>

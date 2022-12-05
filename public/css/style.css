@@ -1,0 +1,87 @@
+#commentList{
+    list-style: none;
+}
+#indexBody{
+margin-top: 12%;
+padding: 5%;
+border: 1px solid black;
+border-radius: 7px;
+}
+#albumBoxes{
+    margin: 0% 1% 0% 1%;
+}
+#feedProfile{
+    margin-top: 2%;
+    margin-left: 42%;
+}
+
+
+#feedHeadAlbum{
+    margin-left: 47%;
+    margin-bottom: 2%;
+}
+.pictureListButton{
+    margin-bottom: 2%;
+   
+}
+#pictureListButtonSection{
+    margin-top: 3%;
+    
+}
+#pictureListHero{
+    margin-bottom: 2%;
+    margin-left: 45%;
+}
+#profileAllPhotos{
+    margin-top: 3%;
+    padding: 5%;
+    background-color: white;
+    border-radius: 20px;
+}
+#navBar{
+
+    background-color: black;
+}
+.navBarLinks{
+    margin-bottom: 2%;
+}
+#imageDownloadButton{
+    margin-top: 5%;
+}
+#deletePost{
+    margin-top: 15%;
+    margin-left: 175%;
+}
+#postBox{
+  border: 1px solid black;
+  padding: 7%;
+  margin-bottom: 3%;
+  border-radius: 20px;
+background-color: black;
+
+}
+#profileHeroAdd{
+    margin-left: 25%;
+    margin-bottom: 2%;
+}
+#postSubmit{
+    margin-top: 5%;
+    margin-left: 35%;
+}
+#postUploadBox{
+    margin-top: 2%;
+}
+.beforeAfter{
+    margin-left: 300%;
+}
+#beforeInfo{
+    margin-left: 5%;
+}
+body{
+   background-image: url('1a__8__generated.jpg');
+    background-size: cover;
+}
+#albumButtons{
+    margin-top: 2%;
+    margin-left: 90%;
+}
