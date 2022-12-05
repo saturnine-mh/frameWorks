@@ -1,20 +1,5 @@
-# Install
-
-`npm install`
-
----
-
-# Things to add
-
-- Create a `.env` file in config folder and add the following as `key = value`
-  - PORT = 2121 (can be any port example: 3000)
-  - DB_STRING = `your database URI`
-  - CLOUD_NAME = `your cloudinary cloud name`
-  - API_KEY = `your cloudinary api key`
-  - API_SECRET = `your cloudinary api secret`
-
----
-
-# Run
-
-`npm start`
+<h1>Frameworks</h1>
+<h2>A cloud based
+photo hosting and editing
+suite</h2>
+A cloud based photo hosting service app, in which the user can upload and resize/compress photos and or videos from anywhere, on any platform, mobile or desktop. It allows collaborative facilities in which a team of developers could all access and upload files to a certain album for a designated project.
